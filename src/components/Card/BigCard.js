@@ -1,13 +1,11 @@
 import cardImg from '../../images/Cover.png';
-import { createContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
+function BigCard() {
 
-function Card() {
-    // const videoContext = createContext();
     const [videos, setVideos] = useState([]);
-
 
     const options = {
         method: "GET",
@@ -21,37 +19,33 @@ function Card() {
         fetch(`https://youtube-v31.p.rapidapi.com/search?relatedToVideoId=7ghhRHRP6t4&part=id%2Csnippet&type=video&maxResults=50`, options)
             .then((response) => response.json())
             .then((response) => {
-                // (!response.items) ? alert("Internetga ulanishni tekshiring !") : '';
                 setVideos(response.items);
                 console.log(response.items)
             })
             .catch((err) => console.error(err));
-
     }, []);
 
-    
+
     return (
-        videos.splice(14, 10).map((video, index) => (
+
+        videos.splice(7, 7).map((video, index) => (
             <Link to={`/singlepages/${video.id.videoId}`}>
-                <li key={video.id.videoId} className='relative ' style={{ minWidth: 250, marginBottom: 20 }} >
-                    <img className='rounded-xl' src={video.snippet.thumbnails.medium.url} />
-                    <span className="vaqt absolute top-28 text-slate-100 bg-slate-900 opacity-70 px-1 rounded-xl right-4">{video.snippet.publishTime.substring(11, 16)}</span>
+                <li key={video.id.videoId} style={{ width: 400 }} className="relative">
+                    <img style={{ width: 400 }} className='rounded-xl' src={video.snippet.thumbnails.medium.url} />
+                    <span className="vaqt absolute top-48 text-slate-100 bg-slate-900 opacity-70 px-1 rounded-xl right-4">{video.snippet.publishTime.substring(11, 16)}</span>
                     <h3 key={index + 1} className="font-medium">{video.snippet.channelTitle}</h3>
                     <div className="flex justify-between">
-                        <span className='text-xs text-slate-400'>80k views  ·  3 days ago</span>
-                        <span className='text-xs text-right text-slate-400'>Dollie Blair</span>
+                        <span className='text-xs text-slate-400'>34k views  ·  5 months ago</span>
+                        <span className='text-xs text-right text-slate-400'>Gussie French</span>
                     </div>
                 </li>
             </Link>
-            
         ))
-        
     )
-
 }
 
 
 
 
 
-export default Card;
+export default BigCard;

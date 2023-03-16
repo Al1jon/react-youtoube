@@ -5,46 +5,31 @@
 
 
 .header {
-    height: 70px;
-    padding: 15px;
+  height: 70px;
+  padding: 15px;
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+}
+
+.header__left img {
+  width: 100px;
+  margin-left: 15px;
+}
+
+.saidbar li {
+  cursor: pointer;
+
+  &:hover span {
+    color: red;
   }
-  
-  .header__left {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header__left img {
-    width: 100px;
-    margin-left: 15px;
-  }
-  
+}
 
-  
-
-  
- 
-  
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.activ {
+  color: red;
+}
 
 
 
